@@ -15,7 +15,8 @@ echo "[init] dependências: TODO"
 # TODO 2: subir o servidor de desenvolvimento em segundo plano (ex.: uvicorn app.main:app &)
 echo "[init] servidor: TODO"
 
-# TODO 3: teste básico de ponta a ponta (ex.: curl -fsS http://localhost:8000/health)
+# TODO 3: teste básico de ponta a ponta (ex.: curl -fsS http://localhost:8000/health).
+# Se precisar de mais que um comando, chame aqui o scripts/verificar.sh (o agente o cria na primeira funcionalidade e todo agente reusa).
 echo "[init] teste básico: TODO"
 
 echo "[init] ok (lembre-se: substitua os TODO, senão este script não verifica nada)"
