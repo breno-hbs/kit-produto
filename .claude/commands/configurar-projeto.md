@@ -47,8 +47,9 @@ Espere a aprovação do humano. Aplique só o que ele aprovar.
 2. Remova o que foi aprovado remover e ajuste as listas de `scripts/check-docs.sh` e as referências em `AGENTS.md` e `processo/processo.md` para que nenhum ponteiro fique quebrado.
 3. Use o agente `planner` com o design aprovado e `docs/discovery/` para gerar `docs/product-specs/index.md` e `feature_list.json`.
 4. Mova o `README.md` do kit para `docs/kit.md` (`git mv`) e crie um `README.md` curto do projeto: nome, objetivo, como subir com `./init.sh` e um ponteiro para `AGENTS.md`. Assim quem abre o repositório lê sobre o produto, não sobre o kit.
-5. Rode `./scripts/check-docs.sh` e corrija até passar. `init.sh` ainda terá TODO se o ambiente não puder subir agora: diga isso explicitamente.
-6. Registre em `docs/estado-atual.md` (onde estamos, o que ficou pendente; preserve a linha "Ciclos desde a última /limpeza: 0", que o `generator`, o `/limpeza` e o `marcar-concluida.sh` usam e o `check-docs.sh` exige) e em `docs/decisions.md` (o que foi decidido, o que foi removido e por quê).
+5. Acrescente ao `.github/workflows/check-docs.yml` os passos que preparam a stack (ex.: `actions/setup-node`, `actions/setup-python`) e rodam o comando de teste e lint aprovado em `AGENTS.md`. Hoje o workflow só valida a estrutura do repositório (`check-docs.sh`); sem este passo, o check verde do PR não diz que os testes do produto passam. Se o projeto ainda não tem testes, registre isso em `docs/exec-plans/tech-debt-tracker.md` e diga ao humano.
+6. Rode `./scripts/check-docs.sh` e corrija até passar. `init.sh` ainda terá TODO se o ambiente não puder subir agora: diga isso explicitamente.
+7. Registre em `docs/estado-atual.md` (onde estamos, o que ficou pendente; preserve a linha "Ciclos desde a última /limpeza: 0", que o `generator`, o `/limpeza` e o `marcar-concluida.sh` usam e o `check-docs.sh` exige) e em `docs/decisions.md` (o que foi decidido, o que foi removido e por quê).
 
 Entregue em poucas linhas o que foi feito, as evidências (saída do `check-docs.sh`) e a próxima ação: revisar `feature_list.json` e rodar `/proxima-feature`.
 
