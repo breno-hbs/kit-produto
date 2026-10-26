@@ -1,5 +1,5 @@
 ---
-description: Início de projeto novo (ou existente): confere o Portão 1, faz o brainstorming, classifica e propõe a configuração do kit sob medida. Só grava o que você traz e o design aprovado; a configuração do kit só depois da sua aprovação.
+description: Início de projeto novo (ou existente). Confere o Portão 1, faz o brainstorming, classifica e propõe a configuração do kit sob medida. Só grava o que você traz e o design aprovado; a configuração do kit só depois da sua aprovação.
 ---
 
 Você configura este repositório para o projeto descrito abaixo. Siga a ordem. Pare nos pontos marcados e espere o humano.

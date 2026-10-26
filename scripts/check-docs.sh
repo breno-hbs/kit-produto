@@ -176,5 +176,17 @@ for a in .claude/agents/*.md; do
   grep -q '^description:' "$a" || err "$a sem campo 'description:' no frontmatter."
 done
 
+# 6b. Comandos têm cabeçalho com description; valor sem aspas com ': ' no meio é YAML inválido (parsers estritos recusam)
+for c in .claude/commands/*.md .claude/agents/*.md; do
+  [ -f "$c" ] || continue
+  head -1 "$c" | grep -q '^---$' || err "$c sem cabeçalho. Comece o arquivo com --- description: ... ---."
+  d=$(awk 'NR>1 && /^---$/ {exit} /^description:/ {sub(/^description: */, ""); print; exit}' "$c")
+  [ -n "$d" ] || err "$c sem 'description:' no cabeçalho."
+  case "$d" in
+    \"*|\'*) ;;
+    *': '*) err "$c: a description tem ': ' sem aspas, o que é YAML inválido. Troque os dois pontos por ponto ou parênteses, ou ponha a description entre aspas." ;;
+  esac
+done
+
 if [ "$fail" -eq 0 ]; then echo "check-docs: ok"; else echo "check-docs: FALHOU" >&2; fi
 exit "$fail"
