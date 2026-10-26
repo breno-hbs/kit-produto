@@ -46,6 +46,7 @@ Prefira poucos módulos com interface simples escondendo bastante complexidade a
 - [ ] Toda funcionalidade tem passos de verificação que um usuário (ou o avaliador) consegue executar
 - [ ] Decisão de arquitetura não trivial está em `docs/decisions.md`
 - [ ] Profundidade de legal, segurança e dados registrada em `docs/depth.md`
+- [ ] Lista "Sempre precisa de humano" preenchida em `docs/SECURITY.md` (ou justificada como vazia em `docs/depth.md`)
 - [ ] Alguém de fora entende o MVP em 2 minutos
 
 Se dois documentos conflitarem: a spec manda sobre "o quê", `ARCHITECTURE.md` sobre "como" e "fora de escopo" sobre o que não entra. O conflito resolvido vira uma linha em `docs/decisions.md`.

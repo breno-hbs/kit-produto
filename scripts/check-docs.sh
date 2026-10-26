@@ -85,6 +85,11 @@ if [ -f docs/SECURITY.md ]; then
   grep -q 'Sempre precisa de humano' docs/SECURITY.md || err "docs/SECURITY.md sem a seção 'Sempre precisa de humano'. Restaure-a (mesmo num projeto simples): planner, generator e evaluator dependem dela."
 fi
 
+# 5c. Projeto já configurado (AGENTS.md sem o nome-modelo): a lista de SECURITY.md não pode ficar com o exemplo
+if [ -f AGENTS.md ] && [ -f docs/SECURITY.md ] && ! grep -q '<NOME_DO_PROJETO>' AGENTS.md; then
+  ! grep -q '<área do projeto>' docs/SECURITY.md || err "docs/SECURITY.md ainda tem o exemplo '<área do projeto>' na lista 'Sempre precisa de humano'. Preencha com as áreas do projeto ou escreva 'nenhuma: <motivo>'."
+fi
+
 # 6. Agentes têm frontmatter com name e description
 for a in .claude/agents/*.md; do
   [ -f "$a" ] || continue
