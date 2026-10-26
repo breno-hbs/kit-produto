@@ -28,13 +28,13 @@
 - Planos longos (ExecPlan): `docs/PLANS.md`, planos ativos em `docs/exec-plans/active/`
 - Dívida técnica conhecida: `docs/exec-plans/tech-debt-tracker.md`
 - Qualidade por área: `docs/QUALITY_SCORE.md`
-- Segurança: `docs/SECURITY.md`
+- Segurança: `docs/SECURITY.md`; qual funcionalidade pegar: `docs/selecao-de-funcionalidade.md`
 - Front-end e critérios de design: `docs/FRONTEND.md`
 - Referências externas resumidas: `docs/references/`
 
 ## Regras de trabalho (curtas, de verdade)
 
-1. Uma funcionalidade por sessão: a que o humano indicar por id (obrigatório com agentes em paralelo) ou, sem id, a de maior prioridade em `feature_list.json` com `"passes": false`, sem `blocked_by` pendente, que não seja `hitl` nem toque a lista "Sempre precisa de humano" de `docs/SECURITY.md` (essas precisam do humano: avise quais esperam; se só sobrarem elas, pare).
+1. Uma funcionalidade por sessão, escolhida pela regra de `docs/selecao-de-funcionalidade.md` (id do humano ou a de maior prioridade; `hitl` e a lista "Sempre precisa de humano" esperam o humano).
 2. Comece toda sessão com: `pwd`, últimas linhas de `docs/estado-atual.md`, `git log --oneline -20`, `./init.sh` e um teste básico de ponta a ponta. Se o básico estiver quebrado, conserte antes de qualquer coisa nova.
 3. Dados externos entram parseados na borda do sistema, em tipos precisos (Pydantic/Zod). Não valide e descarte: veja `docs/design-docs/core-beliefs.md`.
 4. Em `feature_list.json` agentes só alteram o campo `passes` (funcionalidades novas só o humano ou o `planner` acrescentam, sem editar nem remover as existentes), e só depois de verificar a funcionalidade de ponta a ponta como um usuário faria. Nunca remova nem edite testes para passar.
