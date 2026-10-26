@@ -35,7 +35,7 @@ Apresente no chat, em formato curto:
 - O que MANTER e o que REMOVER do kit, com motivo. Padrão: simples = `generator` + `evaluator` opcional e poucos documentos; intermediário = os 4 agentes; complexo = tudo, com `QUALITY_SCORE`, `SECURITY` e `operacao` completos. `docs/ia.md` só se o produto usa IA. Remover é a regra, não a exceção, com uma exceção: nunca remova `docs/SECURITY.md`; num projeto simples, reduza-o aos princípios mínimos e à lista "Sempre precisa de humano".
 - Se houver interface: link do Paper em `docs/FRONTEND.md` e se vale instalar o plugin `frontend-design`.
 - Permissões extras para `.claude/settings.json` (arquivos com credenciais da stack).
-- Se o humano usa o Codex: se mantém os papéis em `.codex/agents/` (ver README).
+- Se o humano usa o Codex: se mantém os papéis em `.codex/agents/` (ver o README do kit, que depois da configuração fica em `docs/kit.md`).
 - Lista "Sempre precisa de humano neste projeto" para `docs/SECURITY.md` (cobrança, acesso, dados, mensagens a usuários, produção), perguntando ao humano o que se aplica.
 - Riscos e perguntas em aberto.
 
@@ -46,8 +46,9 @@ Espere a aprovação do humano. Aplique só o que ele aprovar.
 1. Preencha `AGENTS.md`, `ARCHITECTURE.md`, `init.sh` e `.claude/settings.json` como aprovado.
 2. Remova o que foi aprovado remover e ajuste as listas de `scripts/check-docs.sh` e as referências em `AGENTS.md` e `processo/processo.md` para que nenhum ponteiro fique quebrado.
 3. Use o agente `planner` com o design aprovado e `docs/discovery/` para gerar `docs/product-specs/index.md` e `feature_list.json`.
-4. Rode `./scripts/check-docs.sh` e corrija até passar. `init.sh` ainda terá TODO se o ambiente não puder subir agora: diga isso explicitamente.
-5. Registre em `docs/estado-atual.md` (onde estamos, o que ficou pendente) e em `docs/decisions.md` (o que foi decidido, o que foi removido e por quê).
+4. Mova o `README.md` do kit para `docs/kit.md` (`git mv`) e crie um `README.md` curto do projeto: nome, objetivo, como subir com `./init.sh` e um ponteiro para `AGENTS.md`. Assim quem abre o repositório lê sobre o produto, não sobre o kit.
+5. Rode `./scripts/check-docs.sh` e corrija até passar. `init.sh` ainda terá TODO se o ambiente não puder subir agora: diga isso explicitamente.
+6. Registre em `docs/estado-atual.md` (onde estamos, o que ficou pendente) e em `docs/decisions.md` (o que foi decidido, o que foi removido e por quê).
 
 Entregue em poucas linhas o que foi feito, as evidências (saída do `check-docs.sh`) e a próxima ação: revisar `feature_list.json` e rodar `/proxima-feature`.
 

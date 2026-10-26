@@ -4,7 +4,7 @@
 # pendentes, atingir o máximo de iterações ou algo falhar.
 #
 # AVISO: NÃO foi testado contra o CLI real durante a criação deste kit. Rode primeiro com
-# MAX_ITER=1 e acompanhe. Use em branch própria, com permissões restritas em .claude/settings.json.
+# MAX_ITER=1 e acompanhe. Rodando na main, ele cria a branch ralph/<data>; permissões restritas em .claude/settings.json.
 # Ações destrutivas, financeiras ou em produção NÃO devem estar permitidas.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -19,6 +19,12 @@ d = json.load(open("feature_list.json", encoding="utf-8"))
 print(sum(1 for f in d["features"] if not f["passes"]))
 PY
 }
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+if [ "$branch" = main ] || [ "$branch" = master ]; then
+  git checkout -q -b "ralph/$(date +%Y%m%d-%H%M)" || exit 1
+  echo "Criei a branch $(git rev-parse --abbrev-ref HEAD): o loop nunca commita na $branch. Um PR só, com um commit por funcionalidade."
+fi
 
 [ -z "$(git status --porcelain)" ] || { echo "Árvore git suja. Faça commit ou stash antes (cada iteração precisa começar limpa)."; exit 1; }
 
