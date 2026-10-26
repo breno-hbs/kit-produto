@@ -1,0 +1,3 @@
+# Arquivos ignorados pelo git que o ORCA copia para cada worktree novo.
+# Só caminhos literais (sem globs). O arquivo precisa existir e estar no .gitignore.
+.env

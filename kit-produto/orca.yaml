@@ -1,0 +1,7 @@
+# Configuração do ORCA para este repositório.
+# Compartilhar diretórios entre worktrees é opcional; desligado por padrão
+# (dois agentes instalando pacotes no mesmo diretório compartilhado podem se atrapalhar).
+worktree:
+  sharedDirectories: []
+  # - node_modules
+  # - .cache

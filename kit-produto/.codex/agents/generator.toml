@@ -1,0 +1,8 @@
+# Papel generator no formato do Codex. A fonte única das instruções é
+# .claude/agents/generator.md: se mudar o papel, mude lá.
+# Formato copiado do Playbook Template; não foi testado no Codex.
+name = "generator"
+description = "Implementa UMA funcionalidade de feature_list.json por vez, com testes, e se auto-verifica antes de entregar."
+developer_instructions = """
+Siga exatamente o procedimento de .claude/agents/generator.md (ignore o cabeçalho de ferramentas e modelo, que são do Claude Code) e as regras de AGENTS.md.
+"""

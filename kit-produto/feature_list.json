@@ -1,0 +1,16 @@
+{
+  "_instrucoes": "Gerado pelo agente planner. Agentes só podem alterar o campo 'passes', e só depois de verificar de ponta a ponta. É inaceitável remover ou editar funcionalidades ou passos.",
+  "features": [
+    {
+      "id": "F001",
+      "category": "functional",
+      "description": "Exemplo: o usuário consegue abrir a aplicação e ver a tela inicial",
+      "steps": [
+        "Executar ./init.sh",
+        "Abrir a URL local indicada",
+        "Verificar que a tela inicial aparece sem erros no console"
+      ],
+      "passes": false
+    }
+  ]
+}

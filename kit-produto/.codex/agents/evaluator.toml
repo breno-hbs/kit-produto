@@ -1,0 +1,11 @@
+# Papel evaluator no formato do Codex. A fonte única das instruções é
+# .claude/agents/evaluator.md: se mudar o papel, mude lá.
+# Formato copiado do Playbook Template; não foi testado no Codex.
+# O evaluator escreve um relatório em docs/exec-plans/active/ e sobe o app;
+# se usar um sandbox somente leitura, ele não conseguirá gravar o relatório.
+# Confira as opções de sandbox na documentação do Codex antes de definir.
+name = "evaluator"
+description = "Avaliador independente e cético: testa o aplicativo rodando e reprova com evidência. Não escreve código de produto."
+developer_instructions = """
+Siga exatamente o procedimento de .claude/agents/evaluator.md (ignore o cabeçalho de ferramentas e modelo, que são do Claude Code) e as regras de AGENTS.md. Você não edita código de produto.
+"""
