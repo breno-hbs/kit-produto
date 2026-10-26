@@ -20,6 +20,16 @@ Scripts (sem IA, rodam no terminal):
 | `./scripts/marcar-concluida.sh <id>` | Modo paralelo: no merge, para marcar `passes` e somar ao contador de ciclos |
 | `./scripts/ralph.sh` | Só depois de alguns ciclos manuais (não testado contra o CLI) |
 
+## Rotina semanal (domingo)
+
+Espelhada num cartão do Trello e na Fase 6 do guia "Ciclo do Produto". Os mesmos itens nos três lugares:
+
+1. Rodar `/limpeza` em cada projeto e fazer o merge do PR dela.
+2. Rodar `./scripts/check-docs.sh` e conferir se as Actions do GitHub estão verdes.
+3. Revisar `docs/risks.md` e `docs/discovery/kill-criteria.md` (algum critério foi atingido?).
+4. Escolher as funcionalidades da semana (`/proxima-feature <id>`).
+5. Uma vez por mês, se saiu modelo novo, rodar os evals pessoais (`docs/decisions.md`).
+
 ## Contador de ciclos
 
 `docs/estado-atual.md` tem a linha "Ciclos desde a última /limpeza". O `generator` soma 1 ao concluir um ciclo (em modo paralelo ele não toca no arquivo: quem soma é o `marcar-concluida.sh`, no merge) e o `/limpeza` zera. Com 5 ou mais, o `/proxima-feature` avisa no relatório final.
