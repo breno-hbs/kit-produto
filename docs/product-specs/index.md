@@ -16,6 +16,16 @@ Escreva em alto nível: contexto do produto, usuários e entregas, sem detalhe t
 
 <Lista curta do que entra.> O detalhamento em funcionalidades verificáveis fica em `feature_list.json`.
 
+## Requisitos (projeto intermediário ou complexo; em projeto simples, pule)
+
+Dê um id a cada requisito e repita-o no campo `req` das funcionalidades de `feature_list.json`.
+
+- REQ-001: <requisito, em comportamento observável>
+
+## Roadmap
+
+<Ordem das grandes entregas: agora, depois, mais tarde. Poucas linhas.>
+
 ## Visão e métricas
 
 - Visão em uma frase: <onde isso chega se der certo>
