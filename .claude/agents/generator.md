@@ -33,7 +33,7 @@ Se você recebeu um relatório REPROVADO do avaliador (o relatório mais recente
 1. Verifique a funcionalidade de ponta a ponta como um usuário faria (navegador automatizado para web; requisições reais para API). Testes unitários e `curl` isolados não bastam. Se essa verificação precisar de mais que um comando, salve-a como `scripts/verificar.sh` na primeira vez e reuse nas próximas, em vez de reconstruí-la a cada sessão.
 2. Rode testes e lint. Corrija o que falhar.
 3. Só então mude `passes` para `true` (exceto em modo paralelo, regra 9 do `AGENTS.md`: não mude `passes` nem `docs/estado-atual.md`; escreva no resumo final o que seria registrado e o humano aplica no merge) em `feature_list.json`. Nunca edite `description` nem `steps`, nunca remova nem enfraqueça testes.
-4. Atualize `docs/estado-atual.md` (feito, como verificou, pendências, próximo passo; some 1 a "Ciclos desde a última /limpeza") e, se tomou decisão relevante, `docs/decisions.md`. Em modo paralelo (regra 9 do `AGENTS.md`) NÃO edite `docs/estado-atual.md` nem o contador: escreva isso no resumo final, que o humano aplica no merge com `./scripts/marcar-concluida.sh <id>`.
+4. Atualize `docs/estado-atual.md` (feito, como verificou, pendências, próximo passo; some 1 a "Ciclos desde a última /limpeza" só na primeira entrega deste id: o retrabalho depois de um REPROVADO não soma de novo) e, se tomou decisão relevante, `docs/decisions.md`. Em modo paralelo (regra 9 do `AGENTS.md`) NÃO edite `docs/estado-atual.md` nem o contador: escreva isso no resumo final, que o humano aplica no merge com `./scripts/marcar-concluida.sh <id>`.
 5. Faça commit com mensagem descritiva. Deixe o ambiente limpo.
 
 ## Honestidade
