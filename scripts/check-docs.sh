@@ -121,6 +121,11 @@ if [ -f AGENTS.md ] && [ -f docs/SECURITY.md ] && ! grep -q '<NOME_DO_PROJETO>' 
   ! grep -q '<área do projeto>' docs/SECURITY.md || err "docs/SECURITY.md ainda tem o exemplo '<área do projeto>' na lista 'Sempre precisa de humano'. Preencha com as áreas do projeto ou escreva 'nenhuma: <motivo>'."
 fi
 
+# 5d. Aviso (não erro): projeto configurado com init.sh ainda sem o teste básico preenchido
+if [ -f AGENTS.md ] && [ -f init.sh ] && ! grep -q '<NOME_DO_PROJETO>' AGENTS.md; then
+  ! grep -qE '# TODO [0-9]|: TODO"' init.sh || echo "AVISO: init.sh ainda tem TODO: o início de sessão não verifica nada. Preencha (instalar, subir, teste básico) ou diga ao humano por que não dá." >&2
+fi
+
 # 6. Agentes têm frontmatter com name e description
 for a in .claude/agents/*.md; do
   [ -f "$a" ] || continue

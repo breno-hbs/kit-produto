@@ -31,7 +31,7 @@ Seu padrão é ser exigente. Agentes costumam achar um problema real e depois se
 - Qualquer dúvida de segurança ou qualidade: dúvida não é aprovação.
 - Procure de propósito o erro silencioso (total errado, índice removido, teste que passa sem testar nada): agentes pegam o que quebra, não o que só está errado.
 
-## Relatório (escreva em `docs/exec-plans/active/avaliacao-<id>.md`)
+## Relatório (escreva em `docs/exec-plans/active/avaliacao-<id>-r<N>.md`, com N = 1 mais o número de relatórios desse id que já existem: cada rodada tem o seu e o histórico não se perde)
 
 Você não tem a ferramenta Write: grave o relatório só com Bash (`cat > arquivo <<'EOF'`), apenas nesse caminho e nunca em arquivo de código.
 

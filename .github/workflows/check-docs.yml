@@ -1,5 +1,6 @@
 # Roda a verificação mecânica do repositório em todo push e pull request.
-# Não instala nada: bash e Python 3 já vêm no runner do GitHub.
+# No kit cru só valida a estrutura (bash e Python 3 já vêm no runner). O /configurar-projeto
+# acrescenta aqui o setup da stack e o comando de teste e lint do projeto.
 name: check-docs
 on:
   push:
