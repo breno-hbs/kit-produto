@@ -1,5 +1,5 @@
 ---
-description: Coleta de lixo: desvios de padrão, documentação velha e dívida técnica, em passos pequenos
+description: Coleta de lixo (desvios de padrão, documentação velha e dívida técnica), em passos pequenos
 ---
 
 Faça uma limpeza proporcional:
