@@ -14,7 +14,7 @@ for f in AGENTS.md CLAUDE.md ARCHITECTURE.md feature_list.json init.sh \
          docs/exec-plans/tech-debt-tracker.md docs/selecao-de-funcionalidade.md docs/comandos.md \
          .claude/agents/planner.md .claude/agents/generator.md \
          .claude/agents/evaluator.md .claude/agents/docs-gardener.md \
-         .claude/commands/configurar-projeto.md \
+         .claude/commands/configurar-projeto.md .claude/commands/proxima-feature.md .claude/commands/avaliar.md .claude/commands/limpeza.md \
          processo/processo.md processo/bloco-1-descobrir.md processo/bloco-2-definir.md \
          processo/bloco-3-entregar.md processo/bloco-4-sustentar.md \
          docs/discovery/idea.md docs/discovery/validacao.md docs/discovery/kill-criteria.md; do
@@ -110,6 +110,20 @@ fi
 # 4b. Contador de ciclos em estado-atual.md (usado por generator, /limpeza e marcar-concluida.sh)
 if [ -f docs/estado-atual.md ]; then
   grep -q '^- Ciclos desde a última /limpeza: [0-9]\+' docs/estado-atual.md || err "docs/estado-atual.md sem a linha '- Ciclos desde a última /limpeza: N'. Restaure-a: generator, /limpeza e marcar-concluida.sh dependem dela."
+fi
+
+# 4a. .claude/settings.json é JSON válido e mantém a lista de permissões negadas (JSON quebrado pode derrubar as regras em silêncio)
+if [ -f .claude/settings.json ]; then
+  python3 -I - <<'PY2' || fail=1
+import json, sys
+try:
+    d = json.load(open(".claude/settings.json", encoding="utf-8"))
+except Exception as e:
+    print(f"ERRO: .claude/settings.json não é JSON válido ({e}). Corrija a sintaxe (vírgula sobrando ou aspas): com ele quebrado, as regras que barram .env e push na main podem ser ignoradas.", file=sys.stderr); sys.exit(1)
+deny = (d.get("permissions") or {}).get("deny") if isinstance(d, dict) else None
+if not isinstance(deny, list) or not deny:
+    print("ERRO: .claude/settings.json sem 'permissions.deny' (lista não vazia). Restaure as regras que barram .env, secrets/, rm -rf e push na main.", file=sys.stderr); sys.exit(1)
+PY2
 fi
 
 # 4c. Todo comando de .claude/commands aparece em AGENTS.md, docs/comandos.md e no README do kit
