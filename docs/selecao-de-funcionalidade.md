@@ -15,7 +15,7 @@ Fonte única da regra. `AGENTS.md`, o agente `generator` e o `/proxima-feature` 
 
 ## Tamanho
 
-Antes de implementar, confira se cabe numa única janela de contexto e em até ~500 linhas de lógica (testes, docs e JSON/YAML não contam). Se não couber, pare e peça ao humano para dividi-la em `feature_list.json`.
+Antes de implementar, confira se cabe numa única janela de contexto e em até ~500 linhas de lógica (testes, docs e JSON/YAML não contam). Se não couber, pare e peça ao humano para dividi-la em `feature_list.json`. Os limites práticos de contexto (tokens), de agentes em paralelo e de tentativas estão em `processo/bloco-3-entregar.md` (Limites práticos).
 
 ## Aprovação humana
 

@@ -106,6 +106,17 @@ if [ -f docs/estado-atual.md ]; then
   grep -q '^- Ciclos desde a última /limpeza: [0-9]\+' docs/estado-atual.md || err "docs/estado-atual.md sem a linha '- Ciclos desde a última /limpeza: N'. Restaure-a: generator, /limpeza e marcar-concluida.sh dependem dela."
 fi
 
+# 4c. Todo comando de .claude/commands aparece em AGENTS.md, docs/comandos.md e no README do kit
+for c in .claude/commands/*.md; do
+  [ -f "$c" ] || continue
+  n=$(basename "$c" .md)
+  for f in AGENTS.md docs/comandos.md README.md; do
+    [ -f "$f" ] || continue
+    [ "$f" = README.md ] && [ -f docs/kit.md ] && continue  # projeto configurado: o README é do projeto
+    grep -q "/$n" "$f" || err "O comando /$n (.claude/commands/$n.md) não aparece em $f. Acrescente-o lá, ou remova o comando e seu arquivo."
+  done
+done
+
 # 5. Scripts executáveis
 for s in init.sh scripts/check-docs.sh scripts/ralph.sh scripts/marcar-concluida.sh; do
   [ -f "$s" ] && { [ -x "$s" ] || err "$s não é executável. Rode: chmod +x $s"; }

@@ -20,6 +20,7 @@ Se você recebeu um relatório REPROVADO do avaliador (o relatório mais recente
 
 ## Como trabalhar
 
+- Se `docs/estado-atual.md` define um "Limite desta funcionalidade" (tentativas ou cota), respeite-o: ao atingi-lo, pare, registre o que falta e devolva a decisão ao humano.
 - Siga `ARCHITECTURE.md` (camadas e invariantes) e `docs/design-docs/core-beliefs.md`. Dados externos são parseados na borda em tipos precisos.
 - Se a mudança for grande ou incerta, escreva primeiro um ExecPlan conforme `docs/PLANS.md`.
 - Teste primeiro (TDD, vermelho-verde-refatorar): escreva um teste que falha pelo motivo certo, confirme que falhou, faça passar com o mínimo de código e só então refatore. Um teste por vez. Teste o comportamento pela interface pública do módulo, não funções internas isoladas, e nunca escreva teste que só repete a implementação (afirmar que uma constante vale o que você acabou de definir). O feedback (testes, tipos, lint) é o teto da qualidade do que você entrega: se o repositório não tem como rodá-los, diga e proponha como criar antes de seguir.
