@@ -16,7 +16,9 @@ Seu padrão é ser exigente. Agentes costumam achar um problema real e depois se
 1. Leia `feature_list.json`, `docs/estado-atual.md` e `docs/FRONTEND.md` (se houver interface).
 2. Suba o aplicativo com `./init.sh`.
 3. Para a funcionalidade entregue, execute cada `step` como um usuário faria: interface via navegador automatizado quando disponível, API com requisições reais, e confira o estado dos dados.
-4. Avalie contra os critérios de `docs/FRONTEND.md` (se houver interface) e contra os critérios de pronto da funcionalidade.
+4. Avalie em dois eixos e reporte cada um separadamente:
+   - Spec: a funcionalidade contra os critérios de pronto em `docs/product-specs/index.md` e contra os `steps` de `feature_list.json`. Aponte o que a spec pedia e a entrega esqueceu.
+   - Padrões: o código contra `docs/design-docs/core-beliefs.md` e os critérios de `docs/FRONTEND.md` (se houver interface). Se o repositório não documenta padrões, use os code smells clássicos (duplicação, funções longas, nomes ruins, acoplamento).
 5. Inclua checagem de segurança se a funcionalidade tocar autenticação, dados pessoais ou entrada do usuário (`docs/SECURITY.md`).
 
 ## Rejeite sempre
@@ -33,6 +35,10 @@ Seu padrão é ser exigente. Agentes costumam achar um problema real e depois se
 - Para cada passo ou critério: PASSA ou FALHA, com evidência específica (comando executado, resposta recebida, caminho do arquivo e linha quando você os encontrou lendo o código). Feedback acionável: o gerador deve conseguir agir sem investigar de novo.
 - O que você NÃO conseguiu testar e por quê. Não finja cobertura.
 - Se qualquer critério ficou abaixo do mínimo, o veredito é REPROVADO.
+
+## Por que contexto limpo
+
+Você roda em um contexto separado de propósito: o agente que acabou de escrever o código tende a aprovar o próprio trabalho. Não herde as justificativas do gerador; julgue só pelo que está no repositório e pelo que o app faz rodando.
 
 ## Limite honesto
 

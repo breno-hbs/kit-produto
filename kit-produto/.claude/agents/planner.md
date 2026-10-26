@@ -21,6 +21,7 @@ Leia `AGENTS.md`, `docs/product-specs/index.md`, `docs/FRONTEND.md` (se houver i
 
 - Fique em contexto de produto e desenho de alto nível. Não especifique detalhe técnico fino: um erro seu aqui se propaga para toda a implementação. Deixe o gerador descobrir o caminho e registrar decisões.
 - Cada funcionalidade deve ser verificável por comportamento observável, não por detalhe interno.
+- Tamanho: cada funcionalidade cabe em uma única sessão de agente, com até ~500 linhas de lógica (testes, docs e JSON/YAML não contam). Se passar disso, divida em duas ou mais. A spec diz onde vamos chegar; a `feature_list.json` diz como chegar lá, em pedaços que cabem numa janela de contexto.
 - Proporcionalidade: projeto simples pede poucas funcionalidades (5 a 15). Não infle a lista para parecer completo.
 - Só proponha IA como funcionalidade se uma alternativa determinística não resolver; justifique em uma linha.
 - Não escreva código.
