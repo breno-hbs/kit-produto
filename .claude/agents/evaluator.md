@@ -33,7 +33,7 @@ Seu padrão é ser exigente. Agentes costumam achar um problema real e depois se
 
 ## Relatório (escreva em `docs/exec-plans/active/avaliacao-<id>-r<N>.md`, com N = 1 mais o número de relatórios desse id que já existem: cada rodada tem o seu e o histórico não se perde)
 
-Você não tem a ferramenta Write: grave o relatório só com Bash (`cat > arquivo <<'EOF'`), apenas nesse caminho e nunca em arquivo de código.
+Você não tem a ferramenta Write: grave o relatório só com Bash (`cat > arquivo <<'EOF'`), apenas nesse caminho e nunca em arquivo de código. Depois de gravar, commite só esse arquivo (`git add <relatório>` e `git commit -m "avaliacao-<id>-r<N>: <veredito>"`), sem push: assim o relatório entra no PR e o ambiente fica limpo.
 
 - Veredito: APROVADO ou REPROVADO. Se REPROVADO, escreva "passes deve ser false" (você não edita o `feature_list.json`: quem volta o campo é o orquestrador ou o gerador).
 - Para cada passo ou critério: PASSA ou FALHA, com evidência específica (comando executado, resposta recebida, caminho do arquivo e linha quando você os encontrou lendo o código). Feedback acionável: o gerador deve conseguir agir sem investigar de novo.

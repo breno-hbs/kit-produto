@@ -32,4 +32,4 @@ Espelhada num cartão do Trello e na Fase 6 do guia "Ciclo do Produto". Os mesmo
 
 ## Contador de ciclos
 
-`docs/estado-atual.md` tem a linha "Ciclos desde a última /limpeza". O `generator` soma 1 ao concluir um ciclo (em modo paralelo ele não toca no arquivo: quem soma é o `marcar-concluida.sh`, no merge) e o `/limpeza` zera. Com 5 ou mais, o `/proxima-feature` avisa no relatório final.
+`docs/estado-atual.md` tem a linha "Ciclos desde a última /limpeza". O `generator` soma 1 ao concluir um ciclo, uma vez por funcionalidade (o retrabalho depois de REPROVADO não soma de novo) (em modo paralelo ele não toca no arquivo: quem soma é o `marcar-concluida.sh`, no merge) e o `/limpeza` zera. Com 5 ou mais, o `/proxima-feature` avisa no relatório final.
