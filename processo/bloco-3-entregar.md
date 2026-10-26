@@ -6,7 +6,7 @@ Objetivo: construir em fatias pequenas e verificáveis e colocar o produto diant
 | --- | --- |
 | Plano de execução | `feature_list.json`, ordenada por prioridade e dependência; cada item cabe em uma sessão |
 | Estratégia de testes | Passos de verificação por funcionalidade; testes automatizados do projeto; `docs/QUALITY_SCORE.md` |
-| Construção | `/proxima-feature`: agente `generator`, uma funcionalidade por ciclo |
+| Construção | `/proxima-feature`: agente `generator`, uma funcionalidade por ciclo, em TDD; `hitl` para quando precisa do humano; tela nova passa por protótipos descartáveis (`docs/FRONTEND.md`); ao final, o agente explica o que mudou (investigação agêntica) |
 | Revisão | Agente `evaluator`, em contexto separado, quando a funcionalidade for difícil, sensível ou fechar um marco |
 | Infra e entrega | `docs/operacao.md` (deploy e reversão), CI rodando `./scripts/check-docs.sh` |
 | Instrumentação | Métricas definidas em `docs/product-specs/index.md` coletadas de fato |
