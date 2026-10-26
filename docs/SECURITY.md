@@ -25,6 +25,12 @@ Nível registrado em `docs/depth.md`. Se o produto coleta dado pessoal: base leg
 
 Apagar dados, rodar migração em produção, enviar mensagem ou e-mail a terceiros, qualquer operação financeira, mudar permissões, publicar.
 
+### Sempre precisa de humano neste projeto (preenchido na configuração)
+
+Lista das áreas do SEU produto em que nenhuma mudança é feita sem aprovação humana. Funcionalidade que toque um item daqui é `hitl` em `feature_list.json`, e o `generator` para antes de mexer. Exemplos: cobrança e pagamento, controle de acesso e permissões, migração ou exclusão de dados, envio de mensagem a usuários, configuração de produção.
+
+- <área do projeto>: <por que exige humano>
+
 ## Revisão de segurança
 
 A cada funcionalidade que toque autenticação, dados pessoais ou entrada do usuário, o avaliador inclui uma checagem de segurança no relatório. Para projetos de risco maior, planeje uma etapa dedicada de modelagem de ameaças e revisão de commits.

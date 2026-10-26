@@ -36,6 +36,7 @@ Apresente no chat, em formato curto:
 - Se houver interface: link do Paper em `docs/FRONTEND.md` e se vale instalar o plugin `frontend-design`.
 - Permissões extras para `.claude/settings.json` (arquivos com credenciais da stack).
 - Se o humano usa o Codex: se mantém os papéis em `.codex/agents/` (ver README).
+- Lista "Sempre precisa de humano neste projeto" para `docs/SECURITY.md` (cobrança, acesso, dados, mensagens a usuários, produção), perguntando ao humano o que se aplica.
 - Riscos e perguntas em aberto.
 
 Espere a aprovação do humano. Aplique só o que ele aprovar.
