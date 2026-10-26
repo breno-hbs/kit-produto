@@ -7,6 +7,7 @@ Princípio: o mínimo que funciona. Cada peça existe porque supomos que o model
 ## Como usar
 
 1. Instale uma vez a skill de brainstorming (terceiros, não incluída aqui): `npx skills add https://github.com/obra/superpowers --skill brainstorming`. Leia o `SKILL.md` instalado antes de confiar nele.
+   Opcional: as skills do Matt Pocock (`npx skills@latest add mattpocock/skills`, escopo global, symlink) cobrem um fluxo parecido (grill-with-docs, to-spec, to-tickets, implement, code-review). Não estão neste kit para não duplicar peças; teste num projeto real e leia cada `SKILL.md` antes de confiar. Se usar o setup delas, escolha markdown local como issue tracker.
 2. Para cada ideia nova: crie o repositório a partir desta pasta (`git init`, GitHub).
 3. Abra o Claude Code na pasta (direto ou por uma sessão no ORCA) e rode `/configurar-projeto <descrição>`. Ele confere o Portão 1, faz o brainstorming, classifica o projeto e PROPÕE a configuração do kit antes de gravar qualquer coisa.
 4. Revise `docs/product-specs/index.md` e `feature_list.json`. É o momento de maior alavancagem humana.
@@ -79,4 +80,4 @@ O Codex lê `AGENTS.md` nativamente, e o `CLAUDE.md` de uma linha (`@AGENTS.md`)
 
 ## Fontes de origem
 
-Guia "Do Zero ao Produto com Agentes" e Playbook Template (do autor); OpenAI, "Harness engineering" (Ryan Lopopolo) e "Using PLANS.md for multi-hour problem solving"; Anthropic, "Effective harnesses for long-running agents", "Harness design for long-running application development", "Effective context engineering for AI agents", "Building effective agents"; Geoffrey Huntley, "Everything is a Ralph loop"; Alexis King, "Parse, don't validate"; matklad, "ARCHITECTURE.md"; agents.md; skill brainstorming do repositório obra/superpowers (uso opcional, instalada à parte).
+Guia "Do Zero ao Produto com Agentes" e Playbook Template (do autor); OpenAI, "Harness engineering" (Ryan Lopopolo) e "Using PLANS.md for multi-hour problem solving"; Anthropic, "Effective harnesses for long-running agents", "Harness design for long-running application development", "Effective context engineering for AI agents", "Building effective agents"; Geoffrey Huntley, "Everything is a Ralph loop"; Alexis King, "Parse, don't validate"; matklad, "ARCHITECTURE.md"; agents.md; skill brainstorming do repositório obra/superpowers (uso opcional, instalada à parte); skills de Matt Pocock (mattpocock/skills; fluxo grill, spec, tickets, implement e review; uso opcional, instaladas à parte).
