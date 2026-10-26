@@ -31,7 +31,12 @@ Princípio: o mínimo que funciona. Cada peça existe porque supomos que o model
 | `.claude/agents/` | planner, generator, evaluator, docs-gardener |
 | `.codex/agents/` | generator e evaluator para o Codex, apontando para os mesmos arquivos (opcional, não testado) |
 | `.claude/commands/` | `/configurar-projeto`, `/proxima-feature`, `/avaliar`, `/limpeza` |
-| `scripts/check-docs.sh` | Verificação mecânica da base de conhecimento (rode no CI também) |
+| `scripts/check-docs.sh` | Verificação mecânica da base de conhecimento |
+| `.github/workflows/check-docs.yml` | CI: roda o `check-docs.sh` em todo push e pull request |
+| `docs/selecao-de-funcionalidade.md` | Fonte única da regra de qual funcionalidade pegar (id, `hitl`, lista "Sempre precisa de humano", tamanho) |
+| `docs/exec-plans/` | `active/`: ExecPlans e relatórios do avaliador; `completed/`: arquivados pelo `/limpeza`; dívida técnica em `tech-debt-tracker.md` |
+| `.gitattributes`, `.worktreeinclude`, `orca.yaml` | Fim de linha LF nos scripts; `.env` copiado para cada worktree; opções do ORCA |
+| `scripts/ralph.sh` | Loop automático com limite (não testado contra o CLI; ver Como usar, passo 7) |
 
 ## Nomes unificados (o que mudou em relação ao guia e ao Playbook Template)
 
