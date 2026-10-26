@@ -12,7 +12,7 @@ Princípio: o mínimo que funciona. Cada peça existe porque supomos que o model
 3. Abra o Claude Code na pasta (direto ou por uma sessão no ORCA) e rode `/configurar-projeto <descrição>`. Ele confere o Portão 1, faz o brainstorming, classifica o projeto e PROPÕE a configuração do kit antes de gravar qualquer coisa.
 4. Revise `docs/product-specs/index.md` e `feature_list.json`. É o momento de maior alavancagem humana.
 5. Rode `/proxima-feature`. Uma funcionalidade por ciclo, numa branch `feat/<id>`; o merge na `main` é seu. Leia `docs/estado-atual.md` depois.
-6. Rode `/limpeza` uma vez por semana.
+6. Rode `/limpeza` uma vez por semana (ou quando o contador de ciclos em `docs/estado-atual.md` chegar a 5). Todos os comandos e quando rodá-los: `docs/comandos.md`.
 7. Só depois de alguns ciclos manuais considere `scripts/ralph.sh` (loop automático com limite; não foi testado contra o CLI).
 
 ## O que tem aqui
@@ -36,6 +36,7 @@ Princípio: o mínimo que funciona. Cada peça existe porque supomos que o model
 | `docs/selecao-de-funcionalidade.md` | Fonte única da regra de qual funcionalidade pegar (id, `hitl`, lista "Sempre precisa de humano", tamanho) |
 | `docs/exec-plans/` | `active/`: ExecPlans e relatórios do avaliador; `completed/`: arquivados pelo `/limpeza`; dívida técnica em `tech-debt-tracker.md` |
 | `.gitattributes`, `.worktreeinclude`, `orca.yaml` | Fim de linha LF nos scripts; `.env` copiado para cada worktree; opções do ORCA |
+| `docs/comandos.md`, `scripts/marcar-concluida.sh`, `.github/pull_request_template.md` | Tabela única de comandos (quando e onde rodar); ajudante do merge em modo paralelo; checklist do PR |
 | `scripts/ralph.sh` | Loop automático com limite (não testado contra o CLI; ver Como usar, passo 7) |
 
 ## Nomes unificados (o que mudou em relação ao guia e ao Playbook Template)

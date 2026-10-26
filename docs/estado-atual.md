@@ -8,6 +8,7 @@ Registro factual lido no início de cada sessão e atualizado no fim. Só fatos:
 - Funcionalidades prontas: ver `feature_list.json` (`passes: true`)
 - Ambiente: <sobe com ./init.sh? sim/não>
 - Problemas abertos: nenhum registrado
+- Ciclos desde a última /limpeza: 0
 
 ## Onde estamos no processo
 
