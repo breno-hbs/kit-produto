@@ -1,6 +1,6 @@
 # Decisões
 
-Registro com motivo. Só cresce; não reescreva entradas antigas (se mudar de ideia, acrescente uma nova que a substitui).
+Registro com motivo. Só cresce; não reescreva entradas antigas (se mudar de ideia, acrescente uma nova que a substitui). Exceção: a lista de evals pessoais abaixo, que você atualiza no lugar a cada reteste.
 
 ## Evals pessoais (reteste a cada modelo novo)
 - <prompt ambicioso que o modelo ainda não faz> — último resultado: <data, passou ou falhou>
