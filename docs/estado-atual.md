@@ -9,6 +9,7 @@ Registro factual lido no início de cada sessão e atualizado no fim. Só fatos:
 - Ambiente: <sobe com ./init.sh? sim/não>
 - Problemas abertos: nenhum registrado
 - Ciclos desde a última /limpeza: 0
+- Limite desta funcionalidade (tentativas ou cota): nenhum definido
 
 ## Onde estamos no processo
 
