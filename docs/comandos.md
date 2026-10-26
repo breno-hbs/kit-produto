@@ -6,7 +6,7 @@ Todos os comandos de barra rodam no Claude Code, na pasta do projeto. Cada um te
 
 | Comando | Quando | Onde | Quem decide o resultado |
 | --- | --- | --- | --- |
-| `/configurar-projeto <descrição>` | Uma vez, no início de um projeto (Portão 1 passado) | Claude Code, na pasta do projeto recém-criado | Você aprova a proposta antes de qualquer gravação |
+| `/configurar-projeto <descrição>` | Uma vez, no início de um projeto (Portão 1 passado) | Claude Code, na pasta do projeto recém-criado | Você aprova a proposta antes de o kit ser configurado |
 | `/proxima-feature [id]` | Uma vez por ciclo, depois do Portão 2. Em modo paralelo o id é obrigatório | Claude Code (ou ORCA), numa branch `feat/<id>` | Você faz o merge do PR |
 | `/avaliar` | Depois de uma entrega delicada (segurança, dados, marco) ou quando o `/proxima-feature` pedir | Claude Code, na branch da funcionalidade | Você lê o relatório em `docs/exec-plans/active/` |
 | `/limpeza` | Uma vez por semana (rotina de domingo) ou quando o contador de ciclos em `docs/estado-atual.md` chegar a 5 | Claude Code; se estiver na `main`, ele cria a branch `limpeza/<data>` | Você faz o merge |
