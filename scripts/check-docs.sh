@@ -71,6 +71,26 @@ for f in feats:
             print(f"ERRO: {f.get('id')} depende de '{b}' em 'blocked_by', que não existe. Corrija o id.", file=sys.stderr); bad = True
         if b == f.get("id"):
             print(f"ERRO: {f.get('id')} bloqueia a si mesma. Remova de 'blocked_by'.", file=sys.stderr); bad = True
+by_id = {f.get("id"): f for f in feats}
+for f in feats:
+    if f.get("passes") is True:
+        for b in (f.get("blocked_by") or []):
+            if b in by_id and by_id[b].get("passes") is not True:
+                print(f"ERRO: {f.get('id')} está com passes true, mas depende de '{b}', que não. Marque '{b}' como concluída ou volte {f.get('id')} para false.", file=sys.stderr); bad = True
+state = {}
+def visit(i, path):
+    state[i] = 1
+    for b in (by_id.get(i, {}).get("blocked_by") or []):
+        if b not in by_id: continue
+        if state.get(b) == 1:
+            ciclo = " -> ".join(path[path.index(b):] + [b]) if b in path else b
+            print(f"ERRO: ciclo em 'blocked_by': {ciclo}. Nenhuma delas poderia ser escolhida; remova uma das dependências.", file=sys.stderr); return True
+        if state.get(b) is None and visit(b, path + [b]): return True
+    state[i] = 2
+    return False
+for f in feats:
+    if state.get(f.get("id")) is None and visit(f.get("id"), [f.get("id")]):
+        bad = True; break
 sys.exit(1 if bad else 0)
 PY
 fi
