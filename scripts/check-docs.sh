@@ -137,6 +137,16 @@ if [ -f AGENTS.md ] && [ -f init.sh ] && ! grep -q '<NOME_DO_PROJETO>' AGENTS.md
   ! grep -qE '# TODO [0-9]|: TODO"' init.sh || echo "AVISO: init.sh ainda tem TODO: o início de sessão não verifica nada. Preencha (instalar, subir, teste básico) ou diga ao humano por que não dá." >&2
 fi
 
+# 5e. Projeto configurado (nome-modelo trocado): o resto do AGENTS.md não pode ficar com o modelo
+if [ -f AGENTS.md ] && ! grep -q '<NOME_DO_PROJETO>' AGENTS.md; then
+  for ph in '<COMANDO_DE_TESTE>' '<COMANDO_DE_LINT>' '<ESCOLHA>' '<O QUE O PRODUTO FAZ E PARA QUEM>'; do
+    ! grep -qF "$ph" AGENTS.md || err "AGENTS.md ainda tem o modelo '$ph'. Preencha (se não houver teste ou lint ainda, escreva 'nenhum: <motivo>')."
+  done
+  # Aviso (não erro): docs de partida ainda com o modelo
+  [ ! -f docs/estado-atual.md ] || ! grep -qF '<objetivo do projeto>' docs/estado-atual.md || echo "AVISO: docs/estado-atual.md ainda tem '<objetivo do projeto>'." >&2
+  [ ! -f docs/product-specs/index.md ] || ! grep -qF '<qual>' docs/product-specs/index.md || echo "AVISO: docs/product-specs/index.md ainda tem o modelo ('Problema: <qual>')." >&2
+fi
+
 # 6. Agentes têm frontmatter com name e description
 for a in .claude/agents/*.md; do
   [ -f "$a" ] || continue
