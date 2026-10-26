@@ -9,11 +9,17 @@ Para qualquer interface, o planejador cria uma linguagem visual específica do p
 - O `evaluator` compara a tela rodando com o quadro do Paper, além dos critérios abaixo, e registra as divergências.
 - Se o design mudar, atualize o Paper e a seção abaixo juntos. Sem MCP do Paper conectado, use só a seção abaixo.
 
+## Referências de design (preencher antes dos protótipos)
+
+Agentes copiam melhor do que inventam. Antes de pedir uma tela nova, junte de 1 a 3 exemplos de interfaces que você gosta (link ou imagem) e liste aqui o que você quer aproveitar de cada um (layout, tipografia, ritmo, interação). Entregue-os ao agente junto com o pedido.
+
+- <link ou arquivo>: <o que aproveitar>
+
 ## Protótipos descartáveis (tela nova sem design aprovado)
 
 O agente ainda enxerga mal a interface e não faz bom front-end sozinho num código maduro. Para tela nova sem desenho no Paper:
 
-1. Peça 3 versões diferentes da tela, em uma rota descartável que você alterna com um clique.
+1. Peça 3 versões diferentes da tela, partindo das referências acima, em uma rota descartável que você alterna com um clique.
 2. Escolha uma (ou misture), registre a escolha em `docs/decisions.md` e leve o resultado para o Paper e para a seção abaixo.
 3. Só então implemente de verdade, apagando as rotas descartáveis.
 
