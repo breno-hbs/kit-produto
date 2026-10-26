@@ -34,7 +34,7 @@
 
 ## Regras de trabalho (curtas, de verdade)
 
-1. Uma funcionalidade por sessão. Escolha a de maior prioridade em `feature_list.json` com `"passes": false` e sem `blocked_by` pendente. Funcionalidade `hitl`, ou que toque algo da lista "Sempre precisa de humano" de `docs/SECURITY.md`, precisa do humano.
+1. Uma funcionalidade por sessão. Escolha a de maior prioridade em `feature_list.json` com `"passes": false`, sem `blocked_by` pendente, que não seja `hitl` nem toque a lista "Sempre precisa de humano" de `docs/SECURITY.md` (essas precisam do humano: avise quais esperam; se só sobrarem elas, pare).
 2. Comece toda sessão com: `pwd`, últimas linhas de `docs/estado-atual.md`, `git log --oneline -20`, `./init.sh` e um teste básico de ponta a ponta. Se o básico estiver quebrado, conserte antes de qualquer coisa nova.
 3. Dados externos entram parseados na borda do sistema, em tipos precisos (Pydantic/Zod). Não valide e descarte: veja `docs/design-docs/core-beliefs.md`.
 4. Em `feature_list.json` agentes só alteram o campo `passes` (funcionalidades novas só o humano ou o `planner` acrescentam, sem editar nem remover as existentes), e só depois de verificar a funcionalidade de ponta a ponta como um usuário faria. Nunca remova nem edite testes para passar.
