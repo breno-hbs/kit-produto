@@ -15,13 +15,15 @@ Leia `AGENTS.md`, `docs/product-specs/index.md`, `docs/FRONTEND.md` (se houver i
 
 1. Atualize `docs/product-specs/index.md`: problema, público, resultado e como medir, escopo do MVP, fora de escopo. Seja ambicioso no escopo, mas explícito sobre o que fica de fora.
 2. Se houver interface, preencha a seção "Linguagem visual do produto" em `docs/FRONTEND.md` com escolhas específicas para este produto (não o padrão genérico).
-3. Gere `feature_list.json`: lista de funcionalidades de ponta a ponta, cada uma com `id`, `category`, `description`, `steps` (como verificar como um usuário faria) e `passes: false`. Ordene por prioridade e dependência.
+3. Gere `feature_list.json`: lista de funcionalidades de ponta a ponta, cada uma com `id`, `category`, `description`, `steps` (como verificar como um usuário faria) e `passes: false`. Ordene por prioridade e dependência. Campos opcionais: `type` (`afk` se um agente consegue fazer sozinho; `hitl` se precisa de decisão ou teste humano no meio) e `blocked_by` (lista de ids que precisam estar com `passes: true` antes desta).
 
 ## Regras
 
 - Fique em contexto de produto e desenho de alto nível. Não especifique detalhe técnico fino: um erro seu aqui se propaga para toda a implementação. Deixe o gerador descobrir o caminho e registrar decisões.
 - Cada funcionalidade deve ser verificável por comportamento observável, não por detalhe interno.
 - Tamanho: cada funcionalidade cabe em uma única sessão de agente, com até ~500 linhas de lógica (testes, docs e JSON/YAML não contam). Se passar disso, divida em duas ou mais. A spec diz onde vamos chegar; a `feature_list.json` diz como chegar lá, em pedaços que cabem numa janela de contexto.
+- Fatias verticais: a primeira funcionalidade (e as seguintes, sempre que possível) atravessa todas as camadas necessárias, mesmo que de forma mínima (por exemplo: um dado no banco, uma regra de negócio e uma tela simples que o mostra). Não gere funcionalidade por camada (todo o banco, depois toda a API, depois toda a interface): o feedback só chegaria no fim. Se a primeira funcionalidade que você escreveu é só uma camada, refaça.
+- Dependências: use `blocked_by` só quando uma funcionalidade realmente não pode começar antes de outra. Sem bloqueio, funcionalidades independentes podem ser feitas em paralelo (um agente por funcionalidade, um worktree cada).
 - Proporcionalidade: projeto simples pede poucas funcionalidades (5 a 15). Não infle a lista para parecer completo.
 - Só proponha IA como funcionalidade se uma alternativa determinística não resolver; justifique em uma linha.
 - Não escreva código.

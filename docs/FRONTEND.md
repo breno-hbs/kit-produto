@@ -9,6 +9,14 @@ Para qualquer interface, o planejador cria uma linguagem visual específica do p
 - O `evaluator` compara a tela rodando com o quadro do Paper, além dos critérios abaixo, e registra as divergências.
 - Se o design mudar, atualize o Paper e a seção abaixo juntos. Sem MCP do Paper conectado, use só a seção abaixo.
 
+## Protótipos descartáveis (tela nova sem design aprovado)
+
+O agente ainda enxerga mal a interface e não faz bom front-end sozinho num código maduro. Para tela nova sem desenho no Paper:
+
+1. Peça 3 versões diferentes da tela, em uma rota descartável que você alterna com um clique.
+2. Escolha uma (ou misture), registre a escolha em `docs/decisions.md` e leve o resultado para o Paper e para a seção abaixo.
+3. Só então implemente de verdade, apagando as rotas descartáveis.
+
 ## Linguagem visual do produto (preencher na fase de planejamento)
 
 - Assunto, público e função principal da interface: <...>

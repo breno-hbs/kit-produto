@@ -43,6 +43,16 @@ Todo agente, comando e regra extra existe porque supomos que o modelo não faz a
 
 O agente replica padrões existentes, inclusive os ruins. Pague a dívida em parcelas pequenas e frequentes (`/limpeza`) em vez de em mutirões.
 
+## 10. Módulos profundos, feedback rápido
+
+Prefira poucos módulos com interface pequena e muita lógica dentro (módulos profundos) a muitos arquivos minúsculos que dependem uns dos outros (módulos rasos). O agente navega melhor, e fica claro onde traçar a fronteira de teste: em volta do módulo, pela interface pública. Você desenha a interface e delega a implementação; precisa saber o que o módulo faz e como se comporta, não ler cada linha dentro dele.
+
+A qualidade dos testes, tipos e lint é o teto da qualidade do que o agente entrega. Se o resultado é ruim, melhore o feedback antes de reescrever o pedido. Quando der, escreva o teste primeiro (TDD).
+
+## 11. Fatias verticais
+
+Quebre o trabalho em fatias finas que atravessam todas as camadas, não em fases por camada. Cada fatia deixa algo que já roda de ponta a ponta e que dá feedback imediato. A primeira fatia é a mais importante.
+
 ## Regras de ouro (acrescente conforme os erros aparecerem)
 
 - Preferir utilitários compartilhados a funções auxiliares duplicadas.
