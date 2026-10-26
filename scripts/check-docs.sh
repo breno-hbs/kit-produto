@@ -51,6 +51,12 @@ if not isinstance(feats, list) or not feats:
     print("ERRO: feature_list.json precisa da chave 'features' com ao menos uma funcionalidade.", file=sys.stderr); sys.exit(1)
 ids = set(); bad = False
 for i, f in enumerate(feats):
+    if not isinstance(f, dict):
+        print(f"ERRO: a funcionalidade #{i+1} de feature_list.json deve ser um objeto com id, category, description, steps e passes. Corrija.", file=sys.stderr); sys.exit(1)
+    if not isinstance(f.get("id"), str) or not f.get("id"):
+        print(f"ERRO: a funcionalidade #{i+1} precisa de 'id' como texto não vazio (ex.: \"F001\").", file=sys.stderr); sys.exit(1)
+    if not isinstance(f.get("steps"), list) or not all(isinstance(s, str) and s for s in f.get("steps", [])):
+        print(f"ERRO: 'steps' de {f.get('id')} deve ser uma lista de textos, um por passo de verificação.", file=sys.stderr); sys.exit(1)
     for k in ("id", "category", "description", "steps", "passes"):
         if k not in f:
             print(f"ERRO: funcionalidade #{i+1} sem o campo '{k}'. Acrescente-o.", file=sys.stderr); bad = True

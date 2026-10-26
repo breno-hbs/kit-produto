@@ -1,0 +1,6 @@
+# Fim de linha LF nos arquivos que o agente e o shell leem (evita "bad interpreter" no Windows).
+*.sh text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.yaml text eol=lf
