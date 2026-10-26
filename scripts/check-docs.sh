@@ -80,6 +80,11 @@ for s in init.sh scripts/check-docs.sh scripts/ralph.sh; do
   [ -f "$s" ] && { [ -x "$s" ] || err "$s não é executável. Rode: chmod +x $s"; }
 done
 
+# 5b. SECURITY.md mantém a lista de áreas que sempre exigem humano
+if [ -f docs/SECURITY.md ]; then
+  grep -q 'Sempre precisa de humano' docs/SECURITY.md || err "docs/SECURITY.md sem a seção 'Sempre precisa de humano'. Restaure-a (mesmo num projeto simples): planner, generator e evaluator dependem dela."
+fi
+
 # 6. Agentes têm frontmatter com name e description
 for a in .claude/agents/*.md; do
   [ -f "$a" ] || continue
