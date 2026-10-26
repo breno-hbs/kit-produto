@@ -10,7 +10,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 MAX_ITER="${MAX_ITER:-5}"
-PROMPT='Execute /proxima-feature conforme AGENTS.md: uma funcionalidade, verificada de ponta a ponta, commit e progresso atualizados. Se não houver funcionalidade pendente, responda apenas: SEM_PENDENCIAS'
+PROMPT='Siga o procedimento de .claude/commands/proxima-feature.md conforme AGENTS.md: uma funcionalidade, verificada de ponta a ponta, commit e progresso atualizados. Se não houver funcionalidade pendente, responda apenas: SEM_PENDENCIAS'
 
 pendentes() {
   python3 -I - <<'PY'
