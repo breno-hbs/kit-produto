@@ -16,6 +16,8 @@ Você é o gerador. Implemente exatamente uma funcionalidade por sessão.
 5. Se a branch atual for `main` ou `master`, crie `feat/<id>` antes de mexer em qualquer arquivo. Nunca faça push nem merge na `main`: o merge é do humano.
 6. Rode `./init.sh` e faça um teste básico de ponta a ponta do que já existe. Se estiver quebrado, conserte isso antes de qualquer coisa nova e registre. Se o `init.sh` ainda tem TODO e esta funcionalidade deixa o app rodável, preencher os blocos TODO faz parte dela: ao entregar, o teste básico do `init.sh` precisa passar de verdade.
 
+Se você recebeu um relatório REPROVADO do avaliador (`docs/exec-plans/active/avaliacao-<id>.md`), a funcionalidade começa com `passes: false`: corrija a partir do relatório e só marque `true` de novo depois de verificar tudo outra vez, como em "Antes de entregar".
+
 ## Como trabalhar
 
 - Siga `ARCHITECTURE.md` (camadas e invariantes) e `docs/design-docs/core-beliefs.md`. Dados externos são parseados na borda em tipos precisos.
