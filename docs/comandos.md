@@ -2,7 +2,7 @@
 
 Fonte única. O README, o `AGENTS.md` e a aba "Comandos" do guia "Ciclo do Produto" espelham esta tabela: se mudar, mude aqui primeiro.
 
-Todos os comandos de barra rodam no Claude Code, na pasta do projeto. Cada um termina dizendo qual é o próximo comando recomendado (o `/avaliar` diz o que fazer se reprovou ou aprovou).
+Todos os comandos de barra rodam no Claude Code, na pasta do projeto. Cada um termina dizendo qual é o próximo comando recomendado (o `/avaliar` diz o que fazer se reprovou ou aprovou; reprovada, a funcionalidade volta a `passes: false`).
 
 | Comando | Quando | Onde | Quem decide o resultado |
 | --- | --- | --- | --- |
