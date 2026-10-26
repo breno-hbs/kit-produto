@@ -61,6 +61,16 @@ for i, f in enumerate(feats):
         print(f"ERRO: 'passes' de {f.get('id')} deve ser true ou false.", file=sys.stderr); bad = True
     if not f.get("steps"):
         print(f"ERRO: {f.get('id')} sem 'steps'. Descreva como verificar como um usuário faria.", file=sys.stderr); bad = True
+    if "type" in f and f["type"] not in ("afk", "hitl"):
+        print(f"ERRO: 'type' de {f.get('id')} deve ser 'afk' ou 'hitl'.", file=sys.stderr); bad = True
+    if "blocked_by" in f and not isinstance(f["blocked_by"], list):
+        print(f"ERRO: 'blocked_by' de {f.get('id')} deve ser uma lista de ids.", file=sys.stderr); bad = True
+for f in feats:
+    for b in (f.get("blocked_by") or []):
+        if b not in ids:
+            print(f"ERRO: {f.get('id')} depende de '{b}' em 'blocked_by', que não existe. Corrija o id.", file=sys.stderr); bad = True
+        if b == f.get("id"):
+            print(f"ERRO: {f.get('id')} bloqueia a si mesma. Remova de 'blocked_by'.", file=sys.stderr); bad = True
 sys.exit(1 if bad else 0)
 PY
 fi

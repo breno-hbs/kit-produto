@@ -11,15 +11,16 @@ Você é o gerador. Implemente exatamente uma funcionalidade por sessão.
 
 1. `pwd`. Você só edita arquivos neste projeto.
 2. Leia `AGENTS.md`, o topo de `docs/estado-atual.md` e `git log --oneline -20`.
-3. Leia `feature_list.json` e escolha a funcionalidade de maior prioridade com `"passes": false`.
+3. Leia `feature_list.json` e escolha a funcionalidade de maior prioridade com `"passes": false` cujos itens de `blocked_by` (se houver) já estejam com `"passes": true`. Se a funcionalidade for `hitl`, diga que precisa de decisão ou teste humano e pare nesse ponto em vez de adivinhar.
 4. Rode `./init.sh` e faça um teste básico de ponta a ponta do que já existe. Se estiver quebrado, conserte isso antes de qualquer coisa nova e registre.
 
 ## Como trabalhar
 
 - Siga `ARCHITECTURE.md` (camadas e invariantes) e `docs/design-docs/core-beliefs.md`. Dados externos são parseados na borda em tipos precisos.
 - Se a mudança for grande ou incerta, escreva primeiro um ExecPlan conforme `docs/PLANS.md`.
-- Escreva testes junto com o código.
-- Se a funcionalidade tiver interface, siga a linguagem visual de `docs/FRONTEND.md`.
+- Teste primeiro (TDD, vermelho-verde-refatorar): escreva um teste que falha pelo motivo certo, confirme que falhou, faça passar com o mínimo de código e só então refatore. Um teste por vez. Teste o comportamento pela interface pública do módulo, não funções internas isoladas. O feedback (testes, tipos, lint) é o teto da qualidade do que você entrega: se o repositório não tem como rodá-los, diga e proponha como criar antes de seguir.
+- Prefira módulos profundos (interface pequena, lógica grande dentro) a vários arquivos minúsculos (ver `ARCHITECTURE.md`).
+- Se a funcionalidade tiver interface, siga a linguagem visual de `docs/FRONTEND.md`. Em tela nova sem design aprovado, não escolha sozinho: faça os protótipos descartáveis descritos em `docs/FRONTEND.md` e espere o humano escolher.
 - Resolva ambiguidade sozinho quando for barato desfazer; registre a decisão em `docs/decisions.md`. Pare e pergunte apenas se a decisão for irreversível ou mudar o escopo do produto.
 
 ## Antes de entregar

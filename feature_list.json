@@ -1,9 +1,11 @@
 {
-  "_instrucoes": "Gerado pelo agente planner. Agentes só podem alterar o campo 'passes', e só depois de verificar de ponta a ponta. É inaceitável remover ou editar funcionalidades ou passos.",
+  "_instrucoes": "Gerado pelo agente planner. Agentes só podem alterar o campo 'passes', e só depois de verificar de ponta a ponta. É inaceitável remover ou editar funcionalidades ou passos. Campos opcionais: 'type' ('afk' ou 'hitl') e 'blocked_by' (lista de ids). A primeira funcionalidade deve ser uma fatia vertical: atravessa todas as camadas, mesmo que mínima.",
   "features": [
     {
       "id": "F001",
       "category": "functional",
+      "type": "afk",
+      "blocked_by": [],
       "description": "Exemplo: o usuário consegue abrir a aplicação e ver a tela inicial",
       "steps": [
         "Executar ./init.sh",

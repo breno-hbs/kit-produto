@@ -23,6 +23,13 @@ Preocupações transversais (autenticação, telemetria, feature flags, conector
 
 Para projeto simples, reduza a poucas camadas (por exemplo `types`, `service`, `api`) e mantenha a regra de direção. Não construa camadas que ninguém usa.
 
+## Módulos profundos e fronteiras de teste
+
+Para cada módulo importante, registre a interface pública (poucas funções ou tipos) e o que ele esconde. A fronteira de teste fica em volta do módulo, não de cada função interna.
+
+- `<modulo>`: interface `<funções ou tipos expostos>`; esconde `<o que fica dentro>`; testado por `<arquivo ou pasta de teste>`
+- Se dois módulos pequenos só fazem sentido juntos, junte-os em um módulo profundo.
+
 ## Invariantes (o que NÃO pode acontecer)
 
 Muitas regras importantes são ausências. Liste aqui:
