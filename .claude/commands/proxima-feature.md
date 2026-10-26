@@ -10,7 +10,7 @@ Execute um ciclo completo para UMA funcionalidade:
 3. Se o avaliador reprovar, devolva o relatório ao `generator` para corrigir e reavalie. No máximo 3 rodadas; depois pare e peça decisão humana.
 4. Antes de encerrar, faça a investigação agêntica (leia o `git diff` e o `git log` do ciclo, porque você só recebeu o resumo do gerador): explique ao humano, sem exigir leitura linha a linha, o que mudou e como as peças se encaixam (módulos tocados, quem chama quem, mudança na interface pública, impacto em latência ou dados). Se a interface pública mudou, diga isso em destaque.
 5. Se esta foi a primeira funcionalidade de um tipo novo (primeira tela, primeiro endpoint, primeira integração), peça ao agente que registre em `docs/decisions.md` ou `docs/design-docs/core-beliefs.md` como este projeto faz esse tipo de coisa (padrões, convenções, armadilhas). As próximas do mesmo tipo precisam de menos supervisão.
-6. Ao final, informe em poucas linhas: o que foi entregue, evidência de verificação, o que ficou pendente e a próxima funcionalidade.
+6. Ao final, informe em poucas linhas: o que foi entregue, evidência de verificação, o que ficou pendente e a próxima funcionalidade. Termine com o próximo comando recomendado (`/avaliar` se o avaliador foi pulado e a entrega é delicada; `/limpeza` se "Ciclos desde a última /limpeza" em `docs/estado-atual.md` for 5 ou mais; senão `/proxima-feature <id>`).
 
 Não inicie uma segunda funcionalidade neste ciclo. Ao final, lembre o humano de limpar o contexto (`/clear`) antes do próximo ciclo; só reaproveite a sessão se ainda houver folga clara.
 

@@ -11,7 +11,9 @@ Faça uma limpeza proporcional:
    Mova para `docs/exec-plans/completed/` os relatórios `docs/exec-plans/active/avaliacao-<id>.md` das funcionalidades já com `passes: true`.
 3. Corrija apenas o que for pequeno, seguro e coberto por testes, um item por commit. Registre o resto em `docs/exec-plans/tech-debt-tracker.md`.
 4. Rode os testes antes e depois. Se piorar, reverta aquele item.
-5. Resuma em poucas linhas o que foi feito e o que ficou na dívida.
+5. Zere "Ciclos desde a última /limpeza" em `docs/estado-atual.md`. Resuma em poucas linhas o que foi feito e o que ficou na dívida e termine com o próximo comando recomendado (normalmente `/proxima-feature`).
+
+Trabalhe numa branch `limpeza/<data>` se estiver na `main`; o merge é do humano (regra 8 do `AGENTS.md`).
 
 Se um mesmo erro aparecer pela segunda vez, proponha transformá-lo em verificação mecânica em `scripts/check-docs.sh` ou em um teste estrutural, com mensagem de erro que explique a correção (ou em script, se o passo for mecânico). Itens de `docs/exec-plans/tech-debt-tracker.md` marcados com a palavra "repetido" contam como segunda vez: agrupe os parecidos antes de propor, porque o padrão aparece melhor no conjunto do que item a item.
 
