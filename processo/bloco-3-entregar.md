@@ -23,6 +23,12 @@ Fatias verticais: cada funcionalidade entrega algo que funciona de ponta a ponta
 
 A maioria dos pedidos pula as duas últimas, e é aí que o agente entrega o que você não queria.
 
+## Limites práticos
+
+- Contexto: cada funcionalidade cabe em uma janela de contexto, com folga antes de a sessão degradar (regra prática: entre 100 e 140 mil tokens a qualidade começa a cair). Passou disso, divida a funcionalidade.
+- Agentes em paralelo: o teto prático é de 2 a 5, quase sempre 2 ou 3. Passou disso, o humano perde o contexto do que cada um faz. Só funcionalidades sem `blocked_by` entre si.
+- Antes de começar uma funcionalidade, defina o limite de tentativas ou de cota que o agente pode gastar nela; estourou, o humano decide.
+
 ## Portão 3
 
 - [ ] Testes passam no commit exato que vai ser publicado (leia o resultado; não encadeie "testar e publicar" num comando só)

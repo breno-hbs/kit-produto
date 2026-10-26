@@ -1,5 +1,5 @@
 ---
-description: Início de projeto novo (ou existente): confere o Portão 1, faz o brainstorming, classifica e propõe a configuração do kit sob medida. Nada é gravado sem aprovação.
+description: Início de projeto novo (ou existente): confere o Portão 1, faz o brainstorming, classifica e propõe a configuração do kit sob medida. Só grava o que você traz e o design aprovado; a configuração do kit só depois da sua aprovação.
 ---
 
 Você configura este repositório para o projeto descrito abaixo. Siga a ordem. Pare nos pontos marcados e espere o humano.
@@ -17,6 +17,7 @@ Leia `processo/bloco-1-descobrir.md`. Pergunte ao humano o que já existe: probl
 Use a skill `brainstorming` (instalada com `npx skills add https://github.com/obra/superpowers --skill brainstorming`). Se ela não estiver disponível, pare e diga ao humano o comando de instalação; só continue sem ela se ele mandar.
 
 - Conduza o diálogo de design com o humano até ele aprovar o design. Não escreva código nem estrutura antes disso.
+- Se uma dúvida de design só se resolve rodando algo, faça antes um protótipo curto e descartável (fora do código do produto) e só então aprove o design.
 - Grave o design aprovado em `docs/product-specs/brainstorm.md`.
 - Quando a skill sugerir seguir para outra skill de plano (ex.: `writing-plans`), NÃO siga: neste kit o planejamento é do agente `planner` e vem no passo 4.
 - Diferencie fato, hipótese e suposição no que gravar.
@@ -25,7 +26,7 @@ Use a skill `brainstorming` (instalada com `npx skills add https://github.com/ob
 
 Com base no design aprovado, classifique o projeto como simples, intermediário ou complexo (usuários, funcionalidades, integrações, dados sensíveis, impacto de falha, custo). Justifique em 3 linhas e registre o nível de cada item em `docs/depth.md`.
 
-## 3. Propor a configuração (PARE aqui e mostre; não grave nada)
+## 3. Propor a configuração (PARE aqui e mostre; não grave nenhuma configuração do kit)
 
 Apresente no chat, em formato curto:
 
