@@ -55,6 +55,10 @@ Teste verifica comportamento, não repete a implementação. Um teste que só af
 
 Quebre o trabalho em fatias finas que atravessam todas as camadas, não em fases por camada. Cada fatia deixa algo que já roda de ponta a ponta e que dá feedback imediato. A primeira fatia é a mais importante.
 
+## 12. O que é mecânico vira script
+
+Se uma etapa tem sempre a mesma resposta (renomear em massa, migrar de um padrão para outro, conferir um formato), transforme-a em script ou verificação mecânica e deixe o agente só com o que exige julgamento. Se o mesmo erro do agente aparecer duas vezes, a correção é uma regra mecânica (lint, teste estrutural ou verificação em `scripts/check-docs.sh`), não um pedido mais comprido.
+
 ## Regras de ouro (acrescente conforme os erros aparecerem)
 
 - Preferir utilitários compartilhados a funções auxiliares duplicadas.
