@@ -71,7 +71,7 @@ Skill, plugin e MCP demais podem atrapalhar: cada um pode forçar procedimentos 
 
 ## Quando NÃO usar tudo
 
-- Projeto pequeno (script, protótipo de uma tarde): use só `AGENTS.md`, `init.sh` e `feature_list.json`. Apague o resto.
+- Projeto pequeno (script, protótipo de uma tarde): use só `AGENTS.md`, `init.sh`, `feature_list.json` e `docs/SECURITY.md` reduzido aos princípios mínimos e à lista "Sempre precisa de humano". Apague o resto (e tire os nomes apagados da lista do `scripts/check-docs.sh`).
 - Avaliador: custa várias vezes mais e só compensa quando a tarefa está perto do limite do que o gerador faz sozinho. No teste da Anthropic o harness completo custou mais de 20 vezes o modo solo (US$ 200 contra US$ 9), com resultado visivelmente melhor, mas não é regra para tudo.
 - Camadas rígidas de arquitetura: para projeto simples, reduza a duas ou três.
 
