@@ -25,6 +25,7 @@ Seu padrão é ser exigente. Agentes costumam achar um problema real e depois se
 
 - Correção de bug sem teste que falhe antes e passe depois.
 - Código que ninguém pediu: abstração especulativa, código morto, refatoração de carona, TODO no lugar de trabalho terminado, teste enfraquecido para passar.
+- Teste que não verifica comportamento (repete a implementação, afirma constante, passa sem testar nada).
 - Alerta, teste ou lint silenciado em vez de a causa corrigida.
 - Qualquer dúvida de segurança ou qualidade: dúvida não é aprovação.
 - Procure de propósito o erro silencioso (total errado, índice removido, teste que passa sem testar nada): agentes pegam o que quebra, não o que só está errado.

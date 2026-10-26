@@ -49,6 +49,8 @@ Prefira poucos módulos com interface pequena e muita lógica dentro (módulos p
 
 A qualidade dos testes, tipos e lint é o teto da qualidade do que o agente entrega. Se o resultado é ruim, melhore o feedback antes de reescrever o pedido. Quando der, escreva o teste primeiro (TDD).
 
+Teste verifica comportamento, não repete a implementação. Um teste que só afirma que uma constante vale o que acabou de ser escrito (`assert LIMITE == 4`) dá falsa confiança. Gaste a atenção nas bordas: o que o sistema precisa garantir, os limites de desempenho e o que você não aceita trocar.
+
 ## 11. Fatias verticais
 
 Quebre o trabalho em fatias finas que atravessam todas as camadas, não em fases por camada. Cada fatia deixa algo que já roda de ponta a ponta e que dá feedback imediato. A primeira fatia é a mais importante.

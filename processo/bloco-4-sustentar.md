@@ -13,3 +13,5 @@ Objetivo: manter o produto funcionando, aprender com o uso real e decidir o que 
 | Encerramento | Como desligo com segurança? | `docs/operacao.md` | Usuários avisados; dados tratados conforme a política |
 
 Rotina: `/limpeza` toda semana; `./scripts/check-docs.sh` no CI; depois de alguns ciclos, remover do kit o que ninguém usou.
+
+Evals pessoais: mantenha em `docs/decisions.md` uma lista de 3 a 5 prompts ou tarefas ambiciosas que os modelos ainda não fazem bem. A cada modelo novo, rode de novo e registre o resultado; se algo passou a funcionar sozinho, teste remover a peça do kit que o compensava. Meça antes de mudar o jeito de pedir: não ajuste prompt só porque alguém disse que funciona.
