@@ -18,7 +18,7 @@ for f in AGENTS.md CLAUDE.md ARCHITECTURE.md feature_list.json init.sh \
          processo/processo.md processo/bloco-1-descobrir.md processo/bloco-2-definir.md \
          processo/bloco-3-entregar.md processo/bloco-4-sustentar.md \
          docs/discovery/idea.md docs/discovery/validacao.md docs/discovery/kill-criteria.md; do
-  [ -f "$f" ] || err "arquivo obrigatório ausente: $f. Crie-o (veja AGENTS.md para a função dele)."
+  [ -f "$f" ] || err "arquivo obrigatório ausente: $f. Crie-o (veja AGENTS.md para a função dele) ou, se removeu de propósito, tire-o da lista em scripts/check-docs.sh e as menções em AGENTS.md, .claude/ e docs/comandos.md."
 done
 
 # 2. AGENTS.md é índice: no máximo 100 linhas
@@ -27,16 +27,22 @@ if [ -f AGENTS.md ]; then
   [ "$n" -le 100 ] || err "AGENTS.md tem $n linhas (limite 100). Mova o conteúdo longo para docs/ e deixe só um ponteiro."
 fi
 
-# 3. Ponteiros de AGENTS.md (caminhos entre crases que parecem arquivos) existem
-if [ -f AGENTS.md ]; then
-  ptrs=$(grep -oE '`[A-Za-z0-9_./-]+\.(md|json|sh|txt)`' AGENTS.md | tr -d '`' | sort -u)
-  for p in $ptrs; do
-    case "$p" in
-      docs/exec-plans/active/*|docs/references/*) continue ;;
-    esac
-    [ -e "$p" ] || err "AGENTS.md aponta para '$p', que não existe. Crie o arquivo ou remova o ponteiro."
+# 3. Ponteiros (caminhos entre crases que parecem arquivos) existem: AGENTS.md, agentes, comandos e docs/comandos.md
+skip_ptr() {
+  case "$1" in
+    *'<'*|docs/exec-plans/active/*|docs/exec-plans/completed/*|docs/references/*|docs/ia.md|docs/kit.md|docs/product-specs/brainstorm.md|scripts/verificar.sh) return 0 ;;
+  esac
+  return 1
+}
+for src in AGENTS.md .claude/agents/*.md .claude/commands/*.md docs/comandos.md; do
+  [ -f "$src" ] || continue
+  for p in $(grep -oE '`[A-Za-z0-9_./<>-]+\.(md|json|sh|txt)`' "$src" | tr -d '`' | sort -u); do
+    skip_ptr "$p" && continue
+    # fora do AGENTS.md só conferimos caminhos com pasta e os arquivos da raiz do kit (nomes soltos como check-docs.sh são só citações)
+    [ "$src" = AGENTS.md ] || case "$p" in */*|ARCHITECTURE.md|AGENTS.md|CLAUDE.md|README.md|feature_list.json) ;; *) continue ;; esac
+    [ -e "$p" ] || err "$src aponta para '$p', que não existe. Crie o arquivo ou remova o ponteiro (se removeu a peça de propósito, tire a menção de $src)."
   done
-fi
+done
 
 # 4. feature_list.json é JSON válido e cada funcionalidade tem os campos exigidos
 if [ -f feature_list.json ]; then
@@ -144,6 +150,7 @@ if [ -f AGENTS.md ] && ! grep -q '<NOME_DO_PROJETO>' AGENTS.md; then
   done
   # Aviso (não erro): docs de partida ainda com o modelo
   [ ! -f docs/estado-atual.md ] || ! grep -qF '<objetivo do projeto>' docs/estado-atual.md || echo "AVISO: docs/estado-atual.md ainda tem '<objetivo do projeto>'." >&2
+  [ ! -f docs/estado-atual.md ] || ! grep -qE 'Bloco e fase: <ex|Ambiente: <sobe' docs/estado-atual.md || echo "AVISO: docs/estado-atual.md ainda tem 'Bloco e fase' ou 'Ambiente' com o modelo: a regra 10 depende desses campos." >&2
   [ ! -f docs/product-specs/index.md ] || ! grep -qF '<qual>' docs/product-specs/index.md || echo "AVISO: docs/product-specs/index.md ainda tem o modelo ('Problema: <qual>')." >&2
 fi
 
