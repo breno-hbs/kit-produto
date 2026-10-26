@@ -13,7 +13,7 @@ Você é o gerador. Implemente exatamente uma funcionalidade por sessão.
 2. Leia `AGENTS.md`, o topo de `docs/estado-atual.md` e `git log --oneline -20`.
 3. Leia `feature_list.json` e escolha a funcionalidade indicada pelo humano por id (obrigatória em modo paralelo: sem id, pare e peça) ou, sem id, a de maior prioridade com `"passes": false` cujos itens de `blocked_by` (se houver) já estejam com `"passes": true`, pulando as `hitl` e as que toquem algo da lista "Sempre precisa de humano" de `docs/SECURITY.md`. Diga quais dessas esperam decisão ou teste humano. Se só sobrarem elas, pare em vez de adivinhar.
 3b. Se o humano aprovou na conversa uma funcionalidade `hitl` ou da lista "Sempre precisa de humano", registre a aprovação em `docs/decisions.md` (o quê, quem aprovou, data) antes de mexer no código: o avaliador procura lá.
-4. Rode `./init.sh` e faça um teste básico de ponta a ponta do que já existe. Se estiver quebrado, conserte isso antes de qualquer coisa nova e registre.
+4. Rode `./init.sh` e faça um teste básico de ponta a ponta do que já existe. Se estiver quebrado, conserte isso antes de qualquer coisa nova e registre. Se o `init.sh` ainda tem TODO e esta funcionalidade deixa o app rodável, preencher os blocos TODO faz parte dela: ao entregar, o teste básico do `init.sh` precisa passar de verdade.
 
 ## Como trabalhar
 
