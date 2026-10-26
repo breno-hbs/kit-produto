@@ -18,7 +18,7 @@ Scripts (sem IA, rodam no terminal):
 | `./init.sh` | Início de toda sessão |
 | `./scripts/check-docs.sh` | Antes de abrir PR; o GitHub roda sozinho em todo push |
 | `./scripts/marcar-concluida.sh <id>` | Modo paralelo: no merge, para marcar `passes` e somar ao contador de ciclos |
-| `./scripts/ralph.sh` | Só depois de alguns ciclos manuais (não testado contra o CLI) |
+| `./scripts/ralph.sh` | Só depois de alguns ciclos manuais (não testado contra o CLI). Aceita `RALPH_FLAGS` com flags do CLI, como `--permission-mode` e `--max-budget-usd` (exemplo no cabeçalho do script) |
 
 ## Rotina semanal (domingo)
 
