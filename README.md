@@ -65,6 +65,10 @@ O Codex lê `AGENTS.md` nativamente, e o `CLAUDE.md` de uma linha (`@AGENTS.md`)
 - Paper Design: link do arquivo em `docs/FRONTEND.md`; o generator consulta antes de codar e o evaluator compara a tela com o quadro.
 - Fluid Voice: dite o pedido, revise a transcrição antes de enviar e registre as decisões em `docs/`.
 
+## Poucas skills e plugins
+
+Skill, plugin e MCP demais podem atrapalhar: cada um pode forçar procedimentos que serviam para modelos menos capazes e hoje só limitam o agente, além de ocupar contexto. No Claude Code, rode `/skills` e desative as que o projeto não usa; rode `/context` para ver o peso. Mantenha só o que é crítico (por exemplo, `brainstorming` e, se houver interface, `frontend-design`) e teste removendo uma peça por vez, como o resto do kit.
+
 ## Quando NÃO usar tudo
 
 - Projeto pequeno (script, protótipo de uma tarde): use só `AGENTS.md`, `init.sh` e `feature_list.json`. Apague o resto.
