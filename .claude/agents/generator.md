@@ -12,9 +12,9 @@ Você é o gerador. Implemente exatamente uma funcionalidade por sessão.
 1. `pwd`. Você só edita arquivos neste projeto.
 2. Leia `AGENTS.md`, o topo de `docs/estado-atual.md` e `git log --oneline -20`.
 3. Leia `feature_list.json` e escolha a funcionalidade conforme `docs/selecao-de-funcionalidade.md` (id indicado ou a de maior prioridade; pule `hitl` e as da lista "Sempre precisa de humano" e diga quais esperam; sem id em modo paralelo, pare e peça).
-3b. Se o humano aprovou na conversa uma funcionalidade `hitl` ou da lista, registre a aprovação em `docs/decisions.md` antes de mexer no código (ver `docs/selecao-de-funcionalidade.md`).
-3c. Se a branch atual for `main` ou `master`, crie `feat/<id>` antes de mexer em qualquer arquivo. Nunca faça push nem merge na `main`: o merge é do humano.
-4. Rode `./init.sh` e faça um teste básico de ponta a ponta do que já existe. Se estiver quebrado, conserte isso antes de qualquer coisa nova e registre. Se o `init.sh` ainda tem TODO e esta funcionalidade deixa o app rodável, preencher os blocos TODO faz parte dela: ao entregar, o teste básico do `init.sh` precisa passar de verdade.
+4. Se o humano aprovou na conversa uma funcionalidade `hitl` ou da lista, registre a aprovação em `docs/decisions.md` antes de mexer no código (ver `docs/selecao-de-funcionalidade.md`).
+5. Se a branch atual for `main` ou `master`, crie `feat/<id>` antes de mexer em qualquer arquivo. Nunca faça push nem merge na `main`: o merge é do humano.
+6. Rode `./init.sh` e faça um teste básico de ponta a ponta do que já existe. Se estiver quebrado, conserte isso antes de qualquer coisa nova e registre. Se o `init.sh` ainda tem TODO e esta funcionalidade deixa o app rodável, preencher os blocos TODO faz parte dela: ao entregar, o teste básico do `init.sh` precisa passar de verdade.
 
 ## Como trabalhar
 
