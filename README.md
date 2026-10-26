@@ -8,7 +8,7 @@ Princípio: o mínimo que funciona. Cada peça existe porque supomos que o model
 
 1. Instale uma vez a skill de brainstorming (terceiros, não incluída aqui): `npx skills add https://github.com/obra/superpowers --skill brainstorming`. Leia o `SKILL.md` instalado antes de confiar nele.
    Opcional: as skills do Matt Pocock (`npx skills@latest add mattpocock/skills`, escopo global, symlink) cobrem um fluxo parecido (grill-with-docs, to-spec, to-tickets, implement, code-review). Não estão neste kit para não duplicar peças; teste num projeto real e leia cada `SKILL.md` antes de confiar. Se usar o setup delas, escolha markdown local como issue tracker.
-2. Para cada ideia nova: crie o repositório a partir desta pasta (`git init`, GitHub).
+2. Para cada ideia nova: crie o repositório com "Use this template" no GitHub (ou copie a pasta e rode `git init`).
 3. Abra o Claude Code na pasta (direto ou por uma sessão no ORCA) e rode `/configurar-projeto <descrição>`. Ele confere o Portão 1, faz o brainstorming, classifica o projeto e PROPÕE a configuração do kit antes de gravar qualquer coisa.
 4. Revise `docs/product-specs/index.md` e `feature_list.json`. É o momento de maior alavancagem humana.
 5. Rode `/proxima-feature`. Uma funcionalidade por ciclo, numa branch `feat/<id>`; o merge na `main` é seu. Leia `docs/estado-atual.md` depois.
@@ -79,7 +79,7 @@ Skill, plugin e MCP demais podem atrapalhar: cada um pode forçar procedimentos 
 
 - Os resultados citados nos artigos de origem são relatos dos autores, sem verificação independente, e dependem de modelos e ferramentas específicos.
 - O avaliador também é um modelo e tende a ser generoso. Calibre-o com exemplos seus em `docs/FRONTEND.md` e leia os relatórios nas primeiras rodadas.
-- Em `.claude/settings.json` há só permissões negativas básicas (`.env`, `secrets/`, `rm -rf`, `push --force`). Elas barram as ferramentas de arquivo e comandos que citam o arquivo; um `grep -r` na pasta inteira pode escapar. Ative o sandbox do Claude Code e ajuste conforme o projeto antes de dar autonomia longa a qualquer agente.
+- Em `.claude/settings.json` há só permissões negativas básicas (`.env` e suas variantes de ambiente, mas não o `.env.example`; `secrets/`; `rm -rf`; `push --force`, `-f` e push direto na `main`). Elas barram as ferramentas de arquivo e comandos que citam o arquivo; um `grep -r` na pasta inteira pode escapar. Ative o sandbox do Claude Code e ajuste conforme o projeto antes de dar autonomia longa a qualquer agente.
 - Este kit ainda não rodou num projeto real. O primeiro projeto vai mostrar o que cortar.
 
 ## Fontes de origem
