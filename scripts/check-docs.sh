@@ -11,7 +11,7 @@ err() { echo "ERRO: $1" >&2; fail=1; }
 for f in AGENTS.md CLAUDE.md ARCHITECTURE.md feature_list.json init.sh \
          docs/PLANS.md docs/estado-atual.md docs/decisions.md docs/depth.md docs/risks.md docs/operacao.md docs/QUALITY_SCORE.md docs/SECURITY.md docs/FRONTEND.md \
          docs/design-docs/core-beliefs.md docs/product-specs/index.md \
-         docs/exec-plans/tech-debt-tracker.md \
+         docs/exec-plans/tech-debt-tracker.md docs/selecao-de-funcionalidade.md \
          .claude/agents/planner.md .claude/agents/generator.md \
          .claude/agents/evaluator.md .claude/agents/docs-gardener.md \
          .claude/commands/configurar-projeto.md \
