@@ -48,7 +48,7 @@ Espere a aprovação do humano. Aplique só o que ele aprovar.
 3. Use o agente `planner` com o design aprovado e `docs/discovery/` para gerar `docs/product-specs/index.md` e `feature_list.json`.
 4. Mova o `README.md` do kit para `docs/kit.md` (`git mv`) e crie um `README.md` curto do projeto: nome, objetivo, como subir com `./init.sh` e um ponteiro para `AGENTS.md`. Assim quem abre o repositório lê sobre o produto, não sobre o kit.
 5. Rode `./scripts/check-docs.sh` e corrija até passar. `init.sh` ainda terá TODO se o ambiente não puder subir agora: diga isso explicitamente.
-6. Registre em `docs/estado-atual.md` (onde estamos, o que ficou pendente) e em `docs/decisions.md` (o que foi decidido, o que foi removido e por quê).
+6. Registre em `docs/estado-atual.md` (onde estamos, o que ficou pendente; preserve a linha "Ciclos desde a última /limpeza: 0", que o `generator`, o `/limpeza` e o `marcar-concluida.sh` usam e o `check-docs.sh` exige) e em `docs/decisions.md` (o que foi decidido, o que foi removido e por quê).
 
 Entregue em poucas linhas o que foi feito, as evidências (saída do `check-docs.sh`) e a próxima ação: revisar `feature_list.json` e rodar `/proxima-feature`.
 

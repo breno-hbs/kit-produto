@@ -101,6 +101,11 @@ sys.exit(1 if bad else 0)
 PY
 fi
 
+# 4b. Contador de ciclos em estado-atual.md (usado por generator, /limpeza e marcar-concluida.sh)
+if [ -f docs/estado-atual.md ]; then
+  grep -q '^- Ciclos desde a última /limpeza: [0-9]\+' docs/estado-atual.md || err "docs/estado-atual.md sem a linha '- Ciclos desde a última /limpeza: N'. Restaure-a: generator, /limpeza e marcar-concluida.sh dependem dela."
+fi
+
 # 5. Scripts executáveis
 for s in init.sh scripts/check-docs.sh scripts/ralph.sh scripts/marcar-concluida.sh; do
   [ -f "$s" ] && { [ -x "$s" ] || err "$s não é executável. Rode: chmod +x $s"; }
