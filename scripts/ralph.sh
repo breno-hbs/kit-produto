@@ -27,6 +27,11 @@ for i in $(seq 1 "$MAX_ITER"); do
   [ "$n" -gt 0 ] || { echo "Sem funcionalidades pendentes."; exit 0; }
   echo "=== iteração $i/$MAX_ITER — $n pendente(s) ==="
   claude -p "$PROMPT"
+  depois=$(pendentes)
+  if [ "$depois" -ge "$n" ]; then
+    echo "O agente parou sem concluir nenhuma funcionalidade (provavelmente hitl, grande demais ou travado). Leia o resultado e decida."
+    exit 1
+  fi
   ./scripts/check-docs.sh || { echo "check-docs falhou; parando para revisão humana."; exit 1; }
   [ -z "$(git status --porcelain)" ] || { echo "Árvore suja após a iteração (o agente não deixou o ambiente limpo); parando."; exit 1; }
 done

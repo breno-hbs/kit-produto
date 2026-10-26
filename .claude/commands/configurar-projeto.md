@@ -32,7 +32,7 @@ Apresente no chat, em formato curto:
 - Valores para `AGENTS.md`: nome, objetivo, complexidade, comandos de teste e lint.
 - `ARCHITECTURE.md`: camadas adequadas à stack e ao tamanho (projeto simples: 2 a 3 camadas), invariantes, bordas onde dados externos são parseados em tipos precisos (o equivalente da stack: Pydantic, Zod, Bean Validation etc.) e o modelo de dados.
 - `init.sh`: o que instalar, como subir e qual teste básico de ponta a ponta.
-- O que MANTER e o que REMOVER do kit, com motivo. Padrão: simples = `generator` + `evaluator` opcional e poucos documentos; intermediário = os 4 agentes; complexo = tudo, com `QUALITY_SCORE`, `SECURITY` e `operacao` completos. `docs/ia.md` só se o produto usa IA. Remover é a regra, não a exceção.
+- O que MANTER e o que REMOVER do kit, com motivo. Padrão: simples = `generator` + `evaluator` opcional e poucos documentos; intermediário = os 4 agentes; complexo = tudo, com `QUALITY_SCORE`, `SECURITY` e `operacao` completos. `docs/ia.md` só se o produto usa IA. Remover é a regra, não a exceção, com uma exceção: nunca remova `docs/SECURITY.md`; num projeto simples, reduza-o aos princípios mínimos e à lista "Sempre precisa de humano".
 - Se houver interface: link do Paper em `docs/FRONTEND.md` e se vale instalar o plugin `frontend-design`.
 - Permissões extras para `.claude/settings.json` (arquivos com credenciais da stack).
 - Se o humano usa o Codex: se mantém os papéis em `.codex/agents/` (ver README).
